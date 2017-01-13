@@ -15,7 +15,7 @@ namespace Laernie
 
         public Camera()
         {
-            position = GameInformation.Instance.mapOptions.startPosition - new Vector2(64,GameInformation.Instance.graphicOptions.viewY / 2);
+            position = GameInformation.Instance.mapOptions.startPosition - new Vector2(64,GameInformation.Instance.graphicOptions.viewY);
         }
         public void Reset()
         {
@@ -38,7 +38,8 @@ namespace Laernie
                 position.Y += 5;
 
             return
-                Matrix.CreateTranslation(new Vector3(-(int)position.X, -(int)position.Y, 1));
+                Matrix.CreateTranslation(new Vector3(-(int)position.X, -(int)position.Y, 1))
+                * Matrix.CreateScale(new Vector3(new Vector2(0.5f,0.5f),1));
         }
     }
 }

@@ -10,8 +10,11 @@ namespace Laernie
 {
     struct MoveInformation
     {
-        public Vector2 move { get; private set; }
-        public float speed { get; private set; }
+        Vector2 move;
+        float speed;
+
+        public Vector2 Move { get { return new Vector2(move.X,move.Y); } }
+        public float Speed { get { return speed; } }
 
         /// <summary>
         /// Erstellt ein Paket mit den benötigten BewegungsInformationen
@@ -20,7 +23,7 @@ namespace Laernie
         /// <param name="Geschwindigkeit">Die Kraft des "Abschuss". Range[0,100]</param>
         public MoveInformation(Vector2 _move, float _speed)
         {
-            move = _move;
+            move = new Vector2(_move.X,_move.Y);
             speed = MathHelper.Clamp(_speed, 0, 100) / 10f;
         }
 
@@ -71,8 +74,8 @@ namespace Laernie
         //Setzt die Kraft aus der MoveInformation, dem Bot hinzu
         void SetForce(MoveInformation moveInf)
         {
-            move = Vector2.Normalize(moveInf.move);
-            move *= moveInf.speed;
+            move = Vector2.Normalize(moveInf.Move);
+            move *= moveInf.Speed;
             forceMove = move;
             botStatus = EBotStatus.Flying;
             while (!GameStuff.Instance.tileMap.Walkable(position + new Vector2(GameInformation.Instance.mapOptions.tileSize / 2, GameInformation.Instance.mapOptions.tileSize / 2) + move))

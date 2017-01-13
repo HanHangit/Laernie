@@ -24,7 +24,7 @@ namespace Laernie
 
     class BotOptions
     {
-        public float IdleTime = 3;
+        public float IdleTime = 1;
     }
 
     class GameInformation

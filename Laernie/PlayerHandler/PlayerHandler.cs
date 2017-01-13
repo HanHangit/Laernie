@@ -16,7 +16,10 @@ namespace Laernie
         {
             bots = new IBot[aiScripts.Length];
             for (int i = 0; i < aiScripts.Length; ++i)
+            {
+                aiScripts[i].Initialize();
                 bots[i] = new IBot(botTexture[MathHelper.Clamp(i, 0, botTexture.Length)], aiScripts[i], _font);
+            }
 
             font = _font;
 

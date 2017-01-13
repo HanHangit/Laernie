@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AIScripts\BestOfScripts.cs" />
     <Compile Include="AIScripts\BetterScript.cs" />
+    <Compile Include="AIScripts\BotInformation.cs" />
     <Compile Include="AIScripts\SimpleScript.cs" />
     <Compile Include="PlayerHandler\Bots\IBot.cs" />
     <Compile Include="PlayerHandler\Bots\IBotScript.cs" />

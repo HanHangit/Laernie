@@ -7,26 +7,37 @@ using System.Threading.Tasks;
 
 namespace Laernie
 {
+
     class SimpleScript : IBotScript
     {
+
+        MoveInformation move;
+
+        public void Initialize()
+        {
+            move = new MoveInformation(new Vector2(1, -1), 40);
+        }
+
         public void OnDead(IBot bot)
         {
-            Console.WriteLine("On Dead!");
+            if (move.Speed < 100)
+                move = new MoveInformation(move.Move, move.Speed * 10f + 1);
+                
         }
 
         public void OnFly(IBot bot)
         {
-            //Console.WriteLine("On Fly!");
+
         }
 
         public void OnReachPlattform(IBot bot)
         {
-            Console.WriteLine("OnPlattform");
+
         }
 
         public MoveInformation Think(IBot bot)
         {
-            return new MoveInformation(new Vector2(1, -1), 50);
+            return move;
         }
 
         public override string ToString()

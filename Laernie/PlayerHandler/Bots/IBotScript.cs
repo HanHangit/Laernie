@@ -9,6 +9,10 @@ namespace Laernie
     interface IBotScript
     {
         /// <summary>
+        /// Wird einmalig beim erstellen aufgerufen.
+        /// </summary>
+        void Initialize();
+        /// <summary>
         /// Wird aufgerufen, wenn der Bot auf einer Plattform steht und der nächste Input erwartet wird.
         /// </summary>
         /// <param name="bot">Referenz zum Bot.</param>

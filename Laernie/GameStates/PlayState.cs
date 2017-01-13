@@ -48,7 +48,7 @@ namespace Laernie
 
             playerHandler = new PlayerHandler(
                 new[] { content.Load<Texture2D>("Player/Player_blue32"), content.Load<Texture2D>("Player/Player_green32"), content.Load<Texture2D>("Player/Player_red32"), content.Load<Texture2D>("Player/Player_yellow32") },
-                new IBotScript[] { new SimpleScript(), new BetterScript(), new BestOfScripts() }, content.Load<SpriteFont>("SimpleFont"));
+                new IBotScript[] { new SimpleScript() }, content.Load<SpriteFont>("SimpleFont"));
         }
 
         public void UnloadContent()
